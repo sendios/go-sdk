@@ -3,8 +3,8 @@ package sendios
 import (
 	"encoding/json"
 	"fmt"
+	"go-sdk/internal"
 	"net/http"
-	"sendios/internal"
 	"time"
 )
 
