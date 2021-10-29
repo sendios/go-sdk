@@ -1,9 +1,9 @@
-package sendios
+package go_sdk
 
 import (
 	"encoding/json"
 	"fmt"
-	"go-sdk/internal"
+	"github.com/sendios/go-sdk/internal"
 	"net/http"
 	"time"
 )
