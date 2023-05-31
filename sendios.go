@@ -29,8 +29,8 @@ const (
 )
 
 const (
-	ApiV3 = "http://127.0.0.1:8081/v3/"
-	ApiV1 = "http://127.0.0.1:8081/v1/"
+	ApiV3 = "https://api.sendios.io/v3/"
+	ApiV1 = "https://api.sendios.io/v1/"
 )
 
 var m = map[int]string{System: "push/system", Trigger: "push/trigger"}
