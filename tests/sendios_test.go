@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/quarks-tech/sendios-go-sdk"
-	"github.com/quarks-tech/sendios-go-sdk/internal"
+	sendios "github.com/sendios/go-sdk"
+	"github.com/sendios/go-sdk/internal"
 )
 
 func TestNewSendiosSdk(t *testing.T) {

@@ -1,4 +1,4 @@
-module github.com/quarks-tech/sendios-go-sdk
+module github.com/sendios/go-sdk
 
 go 1.20
 

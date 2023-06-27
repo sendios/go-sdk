@@ -3,7 +3,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/quarks-tech/sendios-go-sdk/internal"
+	"github.com/sendios/go-sdk/internal"
 )
 
 func TestEncrypt_Decrypt(t *testing.T) {

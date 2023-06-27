@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/quarks-tech/sendios-go-sdk/internal"
+	"github.com/sendios/go-sdk/internal"
 )
 
 const (
