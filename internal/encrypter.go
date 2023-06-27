@@ -8,13 +8,11 @@ import (
 	"strings"
 )
 
-var key = []byte("444500b1bd43b59f")
-
 type Encrypt struct {
 	block cipher.Block
 }
 
-func MakeEncrypt() (Encrypt, error) {
+func MakeEncrypt(key []byte) (Encrypt, error) {
 	var block cipher.Block
 	var err error
 

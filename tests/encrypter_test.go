@@ -1,30 +1,28 @@
 package tests
 
 import (
-	"crypto/cipher"
-	"sendios/internal"
 	"testing"
+
+	"github.com/quarks-tech/sendios-go-sdk/internal"
 )
 
 func TestEncrypt_Decrypt(t *testing.T) {
 	type fields struct {
-		block cipher.Block
+		encryptKey []byte
 	}
 	type args struct {
 		encryptedData string
 	}
-	tests := []struct {
+	var tests []struct {
 		name    string
 		fields  fields
 		args    args
 		want    string
 		wantErr bool
-	}{
-		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			encrypt, err := internal.MakeEncrypt()
+			encrypt, err := internal.MakeEncrypt(tt.fields.encryptKey)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("MakeEncrypt error = %v, wantErr %v", err, tt.wantErr)
 				return
@@ -44,23 +42,21 @@ func TestEncrypt_Decrypt(t *testing.T) {
 
 func TestEncrypt_EncryptData(t *testing.T) {
 	type fields struct {
-		block cipher.Block
+		encryptKey []byte
 	}
 	type args struct {
 		dataToEncrypt []byte
 	}
-	tests := []struct {
+	var tests []struct {
 		name    string
 		fields  fields
 		args    args
 		want    string
 		wantErr bool
-	}{
-		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			encrypt, err := internal.MakeEncrypt()
+			encrypt, err := internal.MakeEncrypt(tt.fields.encryptKey)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("MakeEncrypt error = %v, wantErr %v", err, tt.wantErr)
 				return
