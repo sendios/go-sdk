@@ -7,7 +7,6 @@ import (
 )
 
 func Base64Encoder(toEncode string) string {
-
 	return base64.StdEncoding.EncodeToString([]byte(toEncode))
 }
 

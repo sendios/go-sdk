@@ -10,8 +10,8 @@ type BuyingDecisionData struct {
 
 type ClientUser struct {
 	Email        string `json:"email"`
-	ClientUserId string `json:"client_user_id"`
-	ProjectId    int    `json:"project_id"`
+	ClientUserID string `json:"client_user_id"`
+	ProjectID    int    `json:"project_id"`
 }
 
 type CheckEmail struct {
@@ -21,14 +21,14 @@ type CheckEmail struct {
 
 type ValidateEmail struct {
 	Email     string `json:"email"`
-	ProjectId int    `json:"project_id"`
+	ProjectID int    `json:"project_id"`
 }
 
 type EmailSend struct {
-	TypeId       int               `json:"type_id"`
+	TypeID       int               `json:"type_id"`
 	Category     int               `json:"category"`
-	ClientId     int               `json:"client_id"`
-	ProjectId    int               `json:"project_id"`
+	ClientID     int               `json:"client_id"`
+	ProjectID    int               `json:"project_id"`
 	User         map[string]string `json:"user"`
 	Meta         map[string]string `json:"meta"`
 	ValueEncrypt ValueEncrypt      `json:"value_encrypt"`
@@ -38,23 +38,23 @@ type ValueEncrypt struct {
 	TemplateData string `json:"template_data"`
 }
 
-type TypeIds struct {
-	TypeIds []int `json:"type_ids"`
+type TypeIDs struct {
+	TypeIDs []int `json:"type_ids"`
 }
 
 type OnlineByProjectAndEmailUpdating struct {
 	Timestamp    time.Time `json:"timestamp"`
-	ProjectId    int       `json:"project_id"`
+	ProjectID    int       `json:"project_id"`
 	EncodedEmail string    `json:"encoded_email"`
 }
 
 type OnlineByUser struct {
 	Timestamp time.Time `json:"timestamp"`
-	UserId    int       `json:"user_id"`
+	UserID    int       `json:"user_id"`
 }
 
 type Payment struct {
-	UserId      int   `json:"user_id"`
+	UserID      int   `json:"user_id"`
 	StartDate   int64 `json:"start_date"`
 	ExpireDate  int64 `json:"expire_date"`
 	TotalCount  int   `json:"total_count"`
@@ -64,24 +64,24 @@ type Payment struct {
 
 type ForceConfirm struct {
 	LastReaction int64  `json:"last_reaction"`
-	ProjectId    int    `json:"project_id"`
+	ProjectID    int    `json:"project_id"`
 	EncodedEmail string `json:"encoded_email"`
 }
 
 type WebpushSend struct {
-	PushUserId int               `json:"push_user_id"`
+	PushUserID int               `json:"push_user_id"`
 	Title      string            `json:"title"`
 	Url        string            `json:"url"`
 	Icon       string            `json:"icon"`
-	TypeId     int               `json:"type_id"`
+	TypeID     int               `json:"type_id"`
 	Meta       map[string]string `json:"meta"`
 	Text       string            `json:"text"`
 	ImageUrl   string            `json:"image_url"`
-	ProjectId  int               `json:"project_id"`
+	ProjectID  int               `json:"project_id"`
 }
 
 type WebpushUserCreate struct {
-	UserId int               `json:"user_id"`
+	UserID int               `json:"user_id"`
 	Meta   map[string]string `json:"meta"`
 }
 
@@ -102,19 +102,19 @@ type PushData struct {
 }
 
 type EmailUser struct {
-	Id        int    `json:"id"`
+	ID        int    `json:"id"`
 	Email     string `json:"email"`
-	ProjectId int    `json:"project_id"`
+	ProjectID int    `json:"project_id"`
 	Name      string `json:"name"`
 }
 
 type PushUser struct {
-	Id        int `json:"id"`
-	UserId    int `json:"user_id"`
-	ProjectId int `json:"project_id"`
+	ID        int `json:"id"`
+	UserID    int `json:"user_id"`
+	ProjectID int `json:"project_id"`
 }
 
 type Auth struct {
-	ClientId string
+	ClientID string
 	AuthKey  string
 }

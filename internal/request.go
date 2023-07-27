@@ -12,8 +12,12 @@ type Request struct {
 	Auth   *Auth
 }
 
-func (r *Request) Post(url string, route string, data interface{}) ([]byte, error) {
+func (r *Request) Post(url, route string, data interface{}) ([]byte, error) {
 	postBody, err := json.Marshal(data)
+	if err != nil {
+		return nil, fmt.Errorf("error while marshaling data: %s", err)
+	}
+
 	body := bytes.NewBuffer(postBody)
 
 	req, err := http.NewRequest(http.MethodPost, url+route, body)
@@ -22,7 +26,7 @@ func (r *Request) Post(url string, route string, data interface{}) ([]byte, erro
 	}
 
 	key := Sha1Encoder(r.Auth.AuthKey)
-	req.SetBasicAuth(r.Auth.ClientId, key)
+	req.SetBasicAuth(r.Auth.ClientID, key)
 
 	response, err := r.Client.Do(req)
 	if err != nil {
@@ -45,14 +49,14 @@ func (r *Request) Post(url string, route string, data interface{}) ([]byte, erro
 	return encoded, nil
 }
 
-func (r *Request) Get(url string, route string) ([]byte, error) {
+func (r *Request) Get(url, route string) ([]byte, error) {
 	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("%s%s", url, route), nil)
 	if err != nil {
 		return nil, fmt.Errorf("error while creating request: %s", err)
 	}
 
 	key := Sha1Encoder(r.Auth.AuthKey)
-	req.SetBasicAuth(r.Auth.ClientId, key)
+	req.SetBasicAuth(r.Auth.ClientID, key)
 
 	response, err := r.Client.Do(req)
 	if err != nil {
@@ -75,8 +79,12 @@ func (r *Request) Get(url string, route string) ([]byte, error) {
 	return encoded, nil
 }
 
-func (r *Request) Delete(url string, route string, data interface{}) ([]byte, error) {
+func (r *Request) Delete(url, route string, data interface{}) ([]byte, error) {
 	postBody, err := json.Marshal(data)
+	if err != nil {
+		return nil, fmt.Errorf("error while marshaling data: %s", err)
+	}
+
 	body := bytes.NewBuffer(postBody)
 
 	req, err := http.NewRequest(http.MethodDelete, fmt.Sprintf("%s%s", url, route), body)
@@ -85,7 +93,7 @@ func (r *Request) Delete(url string, route string, data interface{}) ([]byte, er
 	}
 
 	key := Sha1Encoder(r.Auth.AuthKey)
-	req.SetBasicAuth(r.Auth.ClientId, key)
+	req.SetBasicAuth(r.Auth.ClientID, key)
 
 	response, err := r.Client.Do(req)
 	if err != nil {
@@ -108,8 +116,12 @@ func (r *Request) Delete(url string, route string, data interface{}) ([]byte, er
 	return encoded, nil
 }
 
-func (r *Request) Put(url string, route string, data interface{}) ([]byte, error) {
+func (r *Request) Put(url, route string, data interface{}) ([]byte, error) {
 	putBody, err := json.Marshal(data)
+	if err != nil {
+		return nil, fmt.Errorf("error while marshaling data: %s", err)
+	}
+
 	body := bytes.NewBuffer(putBody)
 
 	req, err := http.NewRequest(http.MethodPut, fmt.Sprintf("%s%s", url, route), body)
@@ -118,7 +130,7 @@ func (r *Request) Put(url string, route string, data interface{}) ([]byte, error
 	}
 
 	key := Sha1Encoder(r.Auth.AuthKey)
-	req.SetBasicAuth(r.Auth.ClientId, key)
+	req.SetBasicAuth(r.Auth.ClientID, key)
 
 	response, err := r.Client.Do(req)
 	if err != nil {
